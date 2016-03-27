@@ -1,0 +1,16 @@
+.chat-message {
+    list-style: none;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 3px;
+    padding-left: 20px;
+    margin: 5px;
+}
+.chat-box {
+    width: 90%;
+}
+
+* {
+    word-wrap: break-word;
+}

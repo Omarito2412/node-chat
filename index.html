@@ -1,40 +1,29 @@
 <html>
-	<head>
-		<script src="/socket.io/socket.io.js"></script>
-		<script src="jquery.js"></script>
-		<link rel="stylesheet" href="bootstrap.min.css">
-	</head>
-	<body>
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h1>Chat application</h1>
-					</div>
-					<div class="panel-body">
-						<ul id="messages">
-						</ul>
-						<form id="chat-box">
-							<input id="message" autocomplete="off">
-							<button id="send"> Send </button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2"></div>
-		</div>
-		<script>
-			var socket = io();
-			$('#chat-box').submit(function(){
-				socket.emit('chat-message', $('#message').val());
-				$('#message').val('');
-				
-				return false;
-			});
-			socket.on('chat-message', function(message){
-				$('#messages').append($('<li>').text(message));
-			});
-		</script>
-	</body>
+<head>
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-app="app">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default" ng-controller="usernameCtrl">
+                <div class="panel-heading">
+                    <h1>
+                        Please enter your username:
+                    </h1>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <input type="text" ng-model="username">
+                        <button ng-click="Join()" ng-disabled="username.length == 0" class="btn btn-default">Join Chat</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</body>
 </html>

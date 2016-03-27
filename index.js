@@ -7,7 +7,12 @@ app.get('/', function(request, resource){
 	resource.sendFile(__dirname + '/index.html');
 });
 
+app.get('/main', function(request, resource){
+	resource.sendFile(__dirname + '/main.html');
+});
+
 app.use(express.static(__dirname + '/libs'));
+app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function(socket){
         console.log("New user!");
