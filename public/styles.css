@@ -14,3 +14,8 @@
 * {
     word-wrap: break-word;
 }
+
+.sender {
+    font-style: italic;
+    color: #3E5C8C;
+}

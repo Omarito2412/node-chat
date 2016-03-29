@@ -16,7 +16,7 @@
 					</div>
 					<div class="panel-body">
 						<ul  class="list-group" ng-model="texts">
-							<li ng-repeat="text in texts" class="chat-message">{{text}}</li>
+							<li ng-repeat="text in texts" class="chat-message"><span class="sender">{{text.username}}: </span>{{text.message}}</li>
 						</ul>
 						<form ng-submit="chatMessage()">
 							<textarea class="chat-box" autocomplete="off" ng-model="message"></textarea>
